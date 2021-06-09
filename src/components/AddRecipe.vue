@@ -12,6 +12,7 @@
                 <label for="name">Ingredient</label>
                 <input type="text" v-model="ingredients" />
             </div>
+            <p v-if="invalidInput">Please fill in all the required fields</p>
             <div class="form-control">
                 <button>Add Recipe</button>
             </div>
@@ -26,6 +27,7 @@ export default {
             recipeName: '',
             ingredients: '',
             invalidInput: false,
+            error: null,
         };
     },
     methods: {
@@ -50,7 +52,20 @@ export default {
                         ingredients,
                     }),
                 }
-            ).then(() => {});
+            )
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(
+                            'A problem occurred in adding the recipe. Please try again later'
+                        );
+                    }
+                })
+                .catch((error) => {
+                    this.error = error.message;
+                });
+
+            this.recipeName = '';
+            this.ingredients = '';
         },
     },
 };
