@@ -3,15 +3,16 @@
         <h3>All Recipes</h3>
     </header>
     <section>
+        <button @click="getAllRecipes">Load Recipes</button>
         <ul>
             <li v-for="recipe in recipes" :key="recipe.id">
                 <the-recipe>
                     <div>
-                        <span>Recipe</span>
+                        <span>Recipe: </span>
                         <span>{{ recipe.name }}</span>
                     </div>
                     <div>
-                        <span>Ingredients</span>
+                        <span>Ingredients: </span>
                         <span>{{ recipe.ingredients }}</span>
                     </div>
                 </the-recipe>
@@ -59,3 +60,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+ul li {
+    list-style: none;
+}
+</style>

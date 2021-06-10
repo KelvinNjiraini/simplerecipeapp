@@ -1,7 +1,11 @@
 <template>
-    <div></div>
-    <button @click="toggleActiveComponent('all-recipes')">All Recipes</button>
-    <button @click="toggleActiveComponent('add-recipe')">Add Recipe</button>
+    <div>
+        <button @click="toggleActiveComponent('all-recipes')">
+            All Recipes
+        </button>
+        <button @click="toggleActiveComponent('add-recipe')">Add Recipe</button>
+    </div>
+
     <keep-alive>
         <component :is="activeComponent"></component>
     </keep-alive>
