@@ -13,7 +13,18 @@
                     </div>
                     <div>
                         <span>Ingredients: </span>
-                        <span>{{ recipe.ingredients }}</span>
+                        <ul class="ingredient-section">
+                            <li
+                                v-for="(
+                                    ingredient, index
+                                ) in recipe.ingredients"
+                                :key="recipe.ingredients[ingredient]"
+                            >
+                                <span class="ingredient">
+                                    {{ recipe.ingredients[index] }}
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </the-recipe>
             </li>
@@ -64,5 +75,20 @@ export default {
 <style scoped>
 ul li {
     list-style: none;
+}
+
+.ingredient-section {
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.ingredient {
+    display: inline-block;
+    background-color: cyan;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    margin: 0.5rem;
 }
 </style>
