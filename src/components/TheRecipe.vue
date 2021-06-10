@@ -6,7 +6,8 @@
 
 <style scoped>
 div {
-    margin: 2rem auto;
+    display: inline-block;
+    margin: 0 2rem;
     max-width: 20rem;
     min-height: 12rem;
     padding: 1rem;

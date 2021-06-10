@@ -4,7 +4,7 @@
     </header>
     <section>
         <button @click="getAllRecipes">Load Recipes</button>
-        <ul>
+        <ul class="general-flex-container">
             <li v-for="recipe in recipes" :key="recipe.id">
                 <the-recipe>
                     <div>
@@ -88,7 +88,13 @@ ul li {
     display: inline-block;
     background-color: cyan;
     padding: 0.5rem 0.8rem;
-    border-radius: 4px;
+    border-radius: px;
     margin: 0.5rem;
+}
+
+.general-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
 }
 </style>
